@@ -1,0 +1,6 @@
+# Python 3.10
+matplotlib
+pandas
+pytorch-lightning
+scipy
+torch
