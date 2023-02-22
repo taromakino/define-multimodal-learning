@@ -42,9 +42,9 @@ def make_matched_data(rng, n_examples, beta):
     xp = y + x_noise[:, 2]
     x = np.c_[x0, x1, xp]
 
-    x_magnitude = np.abs(x.sum(axis=1))
-    x_magnitude = (x_magnitude - x_magnitude.mean()) / x_magnitude.std()
-    m_prob = sigmoid(x_magnitude, beta)
+    m_prob = np.abs(x_noise.sum(axis=1))
+    m_prob = (m_prob - m_prob.mean()) / m_prob.std()
+    m_prob = sigmoid(m_prob, beta)
     m = rng.binomial(1, m_prob)
     matched_idxs = np.where(m == 1)
     x, y = x[matched_idxs], y[matched_idxs]
